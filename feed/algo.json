@@ -1,1 +1,17 @@
-{"changelog": "된소리 판정 수정", "history": [{"date": "2026-09-20", "notes": "된소리 판정 수정", "version": "1.1.0"}, {"date": "2026-09-13", "notes": "첫 외부 알고리즘 릴리스 (내장과 동일 코드)", "version": "1.0.0"}], "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/latest/download/hangulo-algo-v1.1.0.zip", "version": "1.1.0"}
+{
+  "version": "1.1.0",
+  "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/latest/download/hangulo-algo-v1.1.0.zip",
+  "changelog": "된소리 판정 수정",
+  "history": [
+    {
+      "version": "1.1.0",
+      "date": "2026-09-20",
+      "notes": "된소리 판정 수정"
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-09-13",
+      "notes": "첫 외부 알고리즘 릴리스 (내장과 동일 코드)"
+    }
+  ]
+}
