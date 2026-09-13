@@ -16,5 +16,6 @@ HANGULO 배포 저장소. 앱 소스코드는 포함하지 않는다.
 | `Hangulo-v2.0.0-win64-fd.zip` | 프레임워크 종속 (~2MB) | .NET 9+ 필요 |
 | `hangulo-algo-v2.zip` | 알고리즘 DLL + 사전 (`manifest.json` 포함) | 앱 내 업데이트로 적용 |
 
-앱은 `feed/*.json`을 읽어 업데이트를 확인한다. 새 버전이 나오면 최상위 필드만 갈아끼우고,
-이전 내용은 `history` 배열 맨 앞에 추가한다 (앱은 모르는 필드를 무시하므로 안전).
+앱은 `feed/*.json`을 읽어 업데이트를 확인한다. 새 버전이 나오면 `version`·`url`을 갈아끼우고,
+변경 내용은 `history` 맨 앞 항목의 `notes`에 적는다 (최상위 `changelog`는 쓰지 않음 — history 하나로 통일).
+앱은 모르는 필드를 무시하므로 안전.
