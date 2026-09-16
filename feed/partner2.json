@@ -9,7 +9,5 @@
     "url": "https://www.threads.com/@narz.cg",
     "desc": "this is NARZ's threads"
   },
-  "start": null,
-  "end": null,
-  "default": false
+  "promo": null
 }
