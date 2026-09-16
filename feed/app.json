@@ -1,7 +1,12 @@
 {
-  "version": "2.1.0",
+  "version": "2.1.1",
   "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/latest/download/Hangulo-v2.1.0-win64.zip",
   "history": [
+    {
+      "version": "2.1.1",
+      "date": "2026-09-17",
+      "notes": "메뉴 순서 변경, 추가기능 개선"
+    },
     {
       "version": "2.1.0",
       "date": "2026-09-14",
