@@ -1,0 +1,15 @@
+{
+  "ko": {
+    "name": "NARZ 쓰레드",
+    "url": "https://www.threads.com/@narz.cg",
+    "desc": "쓰레드 페이지 입니다."
+  },
+  "en": {
+    "name": "NARZ Threads",
+    "url": "https://www.threads.com/@narz.cg",
+    "desc": "this is NARZ's threads"
+  },
+  "start": null,
+  "end": null,
+  "default": false
+}

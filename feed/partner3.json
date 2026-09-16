@@ -1,0 +1,15 @@
+{
+  "ko": {
+    "name": "NARZ 인스타그램",
+    "url": "https://instagram.com/narz.cg",
+    "desc": "인스타그램으로 연결 됩니다."
+  },
+  "en": {
+    "name": "NARZ instagram",
+    "url": "https://instagram.com/narz.cg",
+    "desc": "this is NARZ's instagram."
+  },
+  "start": null,
+  "end": null,
+  "default": false
+}
