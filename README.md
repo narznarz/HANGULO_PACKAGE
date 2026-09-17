@@ -8,6 +8,7 @@ HANGULO 배포 저장소. 앱 소스코드는 포함하지 않는다.
 - `feed/algo.json` — 알고리즘 업데이트 피드 (`version`, `url`, history[0]이 변경 내용)
 - `feed/extra.json` — 추가기능용 URL·멘트 (`musicUrl`, `helpUrl`. 앱이 클릭 시 읽음)
 - `feed/partner1.json`, `partner2.json`, `partner3.json` — 파트너 정보 3건 (아래 참조)
+- `feed/sentences.txt` — 변환 테스트 예시문장 (한 줄에 하나, `#` 주석·빈줄 제외. 앱 시작 시 백그라운드로 받아옴)
 - Releases — 실제 배포 파일 (zip)
 
 ## 배포 파일
