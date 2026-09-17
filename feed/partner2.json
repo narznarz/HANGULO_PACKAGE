@@ -9,5 +9,11 @@
     "url": "https://www.threads.com/@narz.cg",
     "desc": "this is NARZ's threads"
   },
-  "promo": null
+  "promo": {
+    "ko": { "name": "", "url": "", "desc": "" },
+    "en": { "name": "", "url": "", "desc": "" },
+    "start": null,
+    "end": null
+  },
+  "_guide": "기간제 홍보 사용법 | promo 안 ko/en에 홍보용 이름·주소·설명을 넣고, start(시작일시)·end(종료일시) 중 최소 하나를 지정하세요. 날짜 형식 예: 2026-10-01T00:00:00+09:00 (KST). 기간 안에만 홍보 내용이 표시되고, 기간이 지나면(또는 start/end가 둘 다 null이면) 위 평상시 내용(ko/en)으로 자동 복귀합니다."
 }
