@@ -1,11 +1,11 @@
 {
-  "version": "1.0.2",
-  "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/v2.0.0/hangulo-algo-v1.0.2.zip",
+  "version": "1.0.3",
+  "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/v2.1.1/hangulo-algo-v1.0.3.zip",
   "history": [
     {
-      "version": "1.0.2",
+      "version": "1.0.3",
       "date": "2026-09-17",
-      "notes": "사전에 jev 추가, 반복 자모 유지, 초성 줄임말 유지, 반복 영문→자모 복원(rr→ㄱㄱ)"
+      "notes": "망글 도메인 복원(ㅊㅐ.ㅏㄱ→co.kr)"
     },
     {
       "version": "1.1.1",
