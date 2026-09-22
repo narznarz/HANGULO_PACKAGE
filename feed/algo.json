@@ -1,7 +1,12 @@
 {
-  "version": "1.0.4",
-  "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/v2.1.1/hangulo-algo-v1.0.4.zip",
+  "version": "1.0.5",
+  "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/v2.1.1/hangulo-algo-v1.0.5.zip",
   "history": [
+    {
+      "version": "1.0.5",
+      "date": "2026-09-17",
+      "notes": "caps 꺼진 올대문자는 소문자로 (KeepAlways 제외)"
+    },
     {
       "version": "1.0.4",
       "date": "2026-09-17",
