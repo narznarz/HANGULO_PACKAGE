@@ -1,7 +1,12 @@
 {
-  "version": "1.0.3",
-  "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/v2.1.1/hangulo-algo-v1.0.3.zip",
+  "version": "1.0.4",
+  "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/v2.1.1/hangulo-algo-v1.0.4.zip",
   "history": [
+    {
+      "version": "1.0.4",
+      "date": "2026-09-17",
+      "notes": "사전에 zfrontier 추가, caps 꺼진 올대문 소문자 정규화"
+    },
     {
       "version": "1.0.3",
       "date": "2026-09-20",
