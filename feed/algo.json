@@ -1,7 +1,12 @@
 {
-  "version": "1.0.5",
-  "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/v2.1.1/hangulo-algo-v1.0.5.zip",
+  "version": "1.0.6",
+  "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/v2.1.1/hangulo-algo-v1.0.6.zip",
   "history": [
+    {
+      "version": "1.0.6",
+      "date": "2026-09-17",
+      "notes": "하이픈 상품코드 복원(ㅁㄴㅇㄹ-ㅎ0023→asdf-g0023)"
+    },
     {
       "version": "1.0.5",
       "date": "2026-09-17",
