@@ -1,7 +1,12 @@
 {
-  "version": "1.0.7",
-  "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/v2.1.1/hangulo-algo-v1.0.7.zip",
+  "version": "1.0.8",
+  "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/v2.1.2/hangulo-algo-v1.0.8.zip",
   "history": [
+    {
+      "version": "1.0.8",
+      "date": "2026-09-27",
+      "notes": "외로운 자모 변환(box3ㅇ→box3d), 유명 사이트명 사전(clien·ppomppu 등), 조합 중 자모 정규화"
+    },
     {
       "version": "1.0.7",
       "date": "2026-09-17",
