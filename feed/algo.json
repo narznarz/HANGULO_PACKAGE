@@ -5,27 +5,27 @@
     {
       "version": "1.0.8",
       "date": "2026-09-27",
-      "notes": "외로운 자모 변환(box3ㅇ→box3d), 유명 사이트명 사전(clien·ppomppu 등), 조합 중 자모 정규화"
+      "notes": "숫자뒤 자음 변환, 사이트명 사전화"
     },
     {
       "version": "1.0.7",
       "date": "2026-09-17",
-      "notes": "AI 모델 사전 추가(gpt/claude/gemini/llama 등)"
+      "notes": "사전화 개선"
     },
     {
       "version": "1.0.6",
       "date": "2026-09-17",
-      "notes": "하이픈 상품코드 복원(ㅁㄴㅇㄹ-ㅎ0023→asdf-g0023)"
+      "notes": "상품코드 알고리즘"
     },
     {
       "version": "1.0.5",
       "date": "2026-09-17",
-      "notes": "caps 꺼진 올대문자는 소문자로 (KeepAlways 제외)"
+      "notes": "caps 관련 알고리즘"
     },
     {
       "version": "1.0.4",
       "date": "2026-09-17",
-      "notes": "사전에 zfrontier 추가, caps 꺼진 올대문 소문자 정규화"
+      "notes": "사이트 이름 알고리즘화"
     },
     {
       "version": "1.0.3",
