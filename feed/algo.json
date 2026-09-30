@@ -3,9 +3,14 @@
   "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/v2.1.2/hangulo-algo-v1.0.8.zip",
   "history": [
     {
+      "version": "1.0.9",
+      "date": "2026-09-29",
+      "notes": "복잡한 상품코드 구조감지"
+    },
+    {
       "version": "1.0.8",
       "date": "2026-09-27",
-      "notes": "숫자뒤 자음 변환, 사이트명 사전화"
+      "notes": "숫자뒤 자음 변환, 사전화 개선"
     },
     {
       "version": "1.0.7",
