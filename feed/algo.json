@@ -1,7 +1,12 @@
 {
-  "version": "1.0.9",
-  "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/v2.1.3/hangulo-algo-v1.0.9.zip",
+  "version": "1.0.10",
+  "url": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/v2.1.3/hangulo-algo-v1.0.10.zip",
   "history": [
+    {
+      "version": "1.0.10",
+      "date": "2026-10-04",
+      "notes": "생산적 접두사(re/un/pre/dis/mis/in/im/non)+사전 단어 복합어 인식, rebirth/reverse/replay/reborn 추가"
+    },
     {
       "version": "1.0.9",
       "date": "2026-09-29",
