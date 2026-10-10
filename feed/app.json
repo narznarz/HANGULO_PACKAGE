@@ -1,7 +1,12 @@
 {
-    "version":  "2.1.4",
-    "url":  "https://github.com/narznarz/HANGULO_PACKAGE/releases/latest/download/Hangulo-v2.1.4-win64.zip",
+    "version":  "2.1.5",
+    "url":  "https://github.com/narznarz/HANGULO_PACKAGE/releases/latest/download/Hangulo-v2.1.5-win64.zip",
     "history":  [
+                    {
+                        "version":  "2.1.5",
+                        "date":  "2026-10-10",
+                        "notes":  "햅틱 연결 안정화"
+                    },
                     {
                         "version":  "2.1.4",
                         "date":  "2026-10-09",
