@@ -1,7 +1,12 @@
 {
-    "version":  "2.1.5",
-    "url":  "https://github.com/narznarz/HANGULO_PACKAGE/releases/latest/download/Hangulo-v2.1.5-win64.zip",
+    "version":  "2.1.6",
+    "url":  "https://github.com/narznarz/HANGULO_PACKAGE/releases/latest/download/Hangulo-v2.1.6-win64.zip",
     "history":  [
+                    {
+                        "version":  "2.1.6",
+                        "date":  "2026-10-11",
+                        "notes":  "IME 표시 방식 개선(숨김, 반응속도 등), 변환구조 개선"
+                    },
                     {
                         "version":  "2.1.5",
                         "date":  "2026-10-10",
