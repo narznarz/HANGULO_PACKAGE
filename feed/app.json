@@ -1,7 +1,12 @@
 {
-    "version":  "2.1.6",
-    "url":  "https://github.com/narznarz/HANGULO_PACKAGE/releases/latest/download/Hangulo-v2.1.6-win64.zip",
+    "version":  "2.1.7",
+    "url":  "https://github.com/narznarz/HANGULO_PACKAGE/releases/latest/download/Hangulo-v2.1.7-win64.zip",
     "history":  [
+                    {
+                        "version":  "2.1.7",
+                        "date":  "2026-10-12",
+                        "notes":  "프로세스 및 변환 안정화, ime표시창 애니메이션 보완"
+                    },
                     {
                         "version":  "2.1.6",
                         "date":  "2026-10-11",
