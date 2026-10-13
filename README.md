@@ -1,5 +1,13 @@
 # HANGULO_PACKAGE
 
+[![HANGULO 한글로](https://hangulo.vercel.app/images/hangulo_og.png)](https://hangulo.vercel.app)
+
+**Windows 11용 한/영 자동변환 무료 앱. 잘못 친 영타는 한글로, 한글은 영타로 실시간 변환.**
+
+[![Homepage](https://img.shields.io/badge/homepage-hangulo.vercel.app-00E5FF?style=flat)](https://hangulo.vercel.app)
+[![APP](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fnarznarz%2FHANGULO_PACKAGE%2Fmain%2Ffeed%2Fapp.json&query=%24.version&prefix=v&label=APP)](https://hangulo.vercel.app#download)
+[![ALGO](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fnarznarz%2FHANGULO_PACKAGE%2Fmain%2Ffeed%2Falgo.json&query=%24.version&prefix=v&label=ALGO)](https://hangulo.vercel.app#download)
+
 HANGULO 배포 저장소. 앱 소스코드는 포함하지 않는다.
 
 ## 구조
