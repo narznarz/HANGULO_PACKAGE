@@ -1,7 +1,12 @@
 {
-    "version":  "2.1.7",
-    "url":  "https://github.com/narznarz/HANGULO_PACKAGE/releases/latest/download/Hangulo-v2.1.7-win64.zip",
+    "version":  "2.1.8",
+    "url":  "https://github.com/narznarz/HANGULO_PACKAGE/releases/latest/download/Hangulo-v2.1.8-win64.zip",
     "history":  [
+                    {
+                        "version":  "2.1.8",
+                        "date":  "2026-10-13",
+                        "notes":  "마우스 IME 표시 추가, 종료·변환·메모리 안정화"
+                    },
                     {
                         "version":  "2.1.7",
                         "date":  "2026-10-12",
