@@ -13,17 +13,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: install deps
+        run: pip install curl_cffi
       - name: update stats
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 - <<'EOF'
-          import json, re, urllib.request
+          import inspect, dataclasses, json, re, secrets, urllib.request
           from datetime import datetime, timezone
           def get(url, headers=None):
               req = urllib.request.Request(url, headers=headers or {"User-Agent": "hangulo-stats/1.0"})
               return urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "replace")
-          out = {}
+          try: prev = json.load(open("feed/stats.json", encoding="utf-8"))
+          except Exception: prev = {}
+          out = dict(prev)
           try:
               html = get("https://extensions.blender.org/themes/oled/")
               m = re.search(r"Downloads[\s\S]*?</dt>\s*<dd>(\d+)</dd>", html)
@@ -46,10 +50,58 @@ jobs:
               out["github_downloads"] = total
           except Exception as e:
               print("github fail:", e)
+          TRUE_PROVIDERS = {"BarcelonaHasCommunities","BarcelonaHasCommunitiesOrLoggedOut",
+              "BarcelonaHasCommunityEmojiUpdateCard","BarcelonaHasDearAlgoConsumption",
+              "BarcelonaHasGameScoreShare","BarcelonaHasMusic","BarcelonaHasPodcastTranscriptConsumption",
+              "BarcelonaHasPodcastV2Consumption"}
+          HOVER_PROVIDERS = ["BarcelonaIsInternalUser","BarcelonaIsLoggedIn","BarcelonaHasMessaging",
+              "BarcelonaMessagesHasLiveChatMessaging","BarcelonaShouldShowFediverseM1Features","BarcelonaHasEventBadge"]
+          try:
+              from curl_cffi import requests as cr
+              csrf = secrets.token_urlsafe(24)[:32]
+              lsd = "AV" + secrets.token_urlsafe(7)[:9]
+              s = cr.Session(impersonate="chrome")
+              s.cookies.set("csrftoken", csrf, domain=".threads.com")
+              variables = {"username": "narz.cg"}
+              for p in HOVER_PROVIDERS:
+                  variables["__relay_internal__pv__" + p + "relayprovider"] = p in TRUE_PROVIDERS
+              body = {"lsd": lsd, "doc_id": "28097126603320603",
+                  "variables": json.dumps(variables, separators=(",", ":")),
+                  "fb_api_req_friendly_name": "BarcelonaUsernameHovercardImplDirectQuery",
+                  "fb_api_caller_class": "RelayModern", "server_timestamps": "true",
+                  "__a": "1", "__comet_req": "29", "__user": "0", "av": "0"}
+              headers = {"accept": "*/*", "accept-language": "en-US,en;q=0.9",
+                  "content-type": "application/x-www-form-urlencoded", "origin": "https://www.threads.com",
+                  "referer": "https://www.threads.com/", "x-asbd-id": "359341", "x-csrftoken": csrf,
+                  "x-fb-friendly-name": "BarcelonaUsernameHovercardImplDirectQuery",
+                  "x-fb-lsd": lsd, "x-ig-app-id": "238260118697367",
+                  "x-logged-out-threads-migrated-request": "true",
+                  "x-root-field-name": "xdt_text_app_user_by_username"}
+              r = s.post("https://www.threads.com/graphql/query", data=body, headers=headers, timeout=30)
+              u = (r.json().get("data") or {}).get("user") or {}
+              if isinstance(u.get("follower_count"), int):
+                  out["threads_followers"] = u["follower_count"]
+                  print("threads:", u["follower_count"])
+              else:
+                  print("threads: no count, status", r.status_code)
+          except Exception as e:
+              print("threads fail:", e)
+          try:
+              from curl_cffi import requests as cr2
+              s2 = cr2.Session(impersonate="chrome")
+              r2 = s2.get("https://www.instagram.com/api/v1/users/web_profile_info/?username=narz.cg",
+                  headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36",
+                      "X-IG-App-ID": "936619743392459", "X-Requested-With": "XMLHttpRequest",
+                      "Referer": "https://www.instagram.com/narz.cg/"}, timeout=30)
+              if r2.status_code == 200:
+                  n = r2.json()["data"]["user"]["edge_followed_by"]["count"]
+                  out["instagram_followers"] = int(n)
+                  print("instagram:", n)
+              else:
+                  print("instagram: HTTP", r2.status_code)
+          except Exception as e:
+              print("instagram fail:", e)
           out["updated"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
-          prev = {}
-          try: prev = json.load(open("feed/stats.json", encoding="utf-8"))
-          except Exception: pass
           if {k: v for k, v in prev.items() if k != "updated"} != {k: v for k, v in out.items() if k != "updated"}:
               json.dump(out, open("feed/stats.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
               print("updated:", out)
