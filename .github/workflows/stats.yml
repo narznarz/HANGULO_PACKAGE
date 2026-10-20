@@ -47,7 +47,7 @@ jobs:
                       for a in r.get("assets", []):
                           total += a.get("download_count", 0) or 0
                   page += 1
-              out["github_downloads"] = total
+              out["github_downloads"] = max(int(prev.get("github_downloads") or 0), total)
           except Exception as e:
               print("github fail:", e)
           TRUE_PROVIDERS = {"BarcelonaHasCommunities","BarcelonaHasCommunitiesOrLoggedOut",
