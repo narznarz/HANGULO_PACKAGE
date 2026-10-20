@@ -18,6 +18,7 @@ jobs:
       - name: update stats
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
         run: |
           python3 - <<'EOF'
           import inspect, dataclasses, json, re, secrets, urllib.request
