@@ -123,6 +123,30 @@ jobs:
                       print("haptics: no change", ver)
           except Exception as e:
               print("haptics fail:", e)
+          try:
+              import os
+              tv_tok = os.environ.get("THREADS_TOKEN")
+              if tv_tok:
+                  uid = json.loads(get(f"https://graph.threads.net/v1.0/me?fields=id&access_token={tv_tok}")).get("id")
+                  total_v, seen = 0, 0
+                  nxt = f"https://graph.threads.net/v1.0/{uid}/threads?fields=id&limit=100&access_token={tv_tok}"
+                  while nxt and seen < 800:
+                      d = json.loads(get(nxt))
+                      for m in d.get("data", []):
+                          seen += 1
+                          iv = json.loads(get(f"https://graph.threads.net/v1.0/{m['id']}/insights?metric=views&access_token={tv_tok}"))
+                          for x in iv.get("data", []):
+                              if x.get("name") == "views":
+                                  vals = x.get("values") or [{}]
+                                  total_v += int(vals[0].get("value") or 0)
+                      nxt = (d.get("paging") or {}).get("next")
+                  out["threads_views"] = max(int(prev.get("threads_views") or 0), total_v)
+                  out["threads_posts"] = seen
+                  print("threads views:", total_v, "posts:", seen)
+              else:
+                  print("threads views: no token")
+          except Exception as e:
+              print("threads views fail:", e)
           out["updated"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
           if {k: v for k, v in prev.items() if k != "updated"} != {k: v for k, v in out.items() if k != "updated"}:
               json.dump(out, open("feed/stats.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
