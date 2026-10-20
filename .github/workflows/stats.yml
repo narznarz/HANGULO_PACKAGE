@@ -101,6 +101,28 @@ jobs:
                   print("instagram: HTTP", r2.status_code)
           except Exception as e:
               print("instagram fail:", e)
+          try:
+              import os
+              hh = {"User-Agent": "hangulo-stats/1.0"}
+              tk = os.environ.get("GH_TOKEN")
+              if tk: hh["Authorization"] = "Bearer " + tk
+              hrels = json.loads(get("https://api.github.com/repos/narznarz/HANGULO_PACKAGE/releases?per_page=100", hh))
+              cand = [r for r in hrels if r.get("tag_name","").startswith("haptics-v") and not r.get("draft") and not r.get("prerelease")]
+              if cand:
+                  top = max(cand, key=lambda r: r.get("published_at",""))
+                  ver = top["tag_name"].split("haptics-v", 1)[1]
+                  exe = next((a["browser_download_url"] for a in top.get("assets", []) if a.get("name","").endswith("-setup.exe")), "")
+                  try: ex = json.load(open("feed/extra.json", encoding="utf-8"))
+                  except Exception: ex = {}
+                  if exe and (ex.get("hapticsVersion") != ver or ex.get("hapticsUrl") != exe):
+                      ex["hapticsVersion"] = ver
+                      ex["hapticsUrl"] = exe
+                      json.dump(ex, open("feed/extra.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+                      print("haptics:", ver, exe)
+                  else:
+                      print("haptics: no change", ver)
+          except Exception as e:
+              print("haptics fail:", e)
           out["updated"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
           if {k: v for k, v in prev.items() if k != "updated"} != {k: v for k, v in out.items() if k != "updated"}:
               json.dump(out, open("feed/stats.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
@@ -112,5 +134,5 @@ jobs:
         run: |
           git config user.name "hangulo-stats"
           git config user.email "hangulo-stats@users.noreply.github.com"
-          git add feed/stats.json
-          git diff --cached --quiet || (git commit -m "stats: daily download counts" && git push)
+          git add feed/stats.json feed/extra.json
+          git diff --cached --quiet || (git commit -m "stats: daily counts + haptics version" && git push)
