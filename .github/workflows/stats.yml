@@ -129,13 +129,12 @@ jobs:
               if tv_tok:
                   uid = json.loads(get(f"https://graph.threads.net/v1.0/me?fields=id&access_token={tv_tok}")).get("id")
                   total_v, seen = 0, 0
-                  nxt = f"https://graph.threads.net/v1.0/{uid}/threads?fields=id&limit=100&access_token={tv_tok}"
-                  while nxt and seen < 800:
+                  nxt = f"https://graph.threads.net/v1.0/{uid}/threads?fields=id,insights.metric(views)&limit=100&access_token={tv_tok}"
+                  while nxt and seen < 2000:
                       d = json.loads(get(nxt))
                       for m in d.get("data", []):
                           seen += 1
-                          iv = json.loads(get(f"https://graph.threads.net/v1.0/{m['id']}/insights?metric=views&access_token={tv_tok}"))
-                          for x in iv.get("data", []):
+                          for x in (m.get("insights") or {}).get("data", []):
                               if x.get("name") == "views":
                                   vals = x.get("values") or [{}]
                                   total_v += int(vals[0].get("value") or 0)
