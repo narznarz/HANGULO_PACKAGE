@@ -1,6 +1,6 @@
 {
   "musicUrl": "https://www.youtube.com/watch?v=JYUilbw34Z0",
   "helpUrl": "https://hangulo.vercel.app/",
-  "hapticsVersion": "1.2",
-  "hapticsUrl": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/haptics-v1.2/HanguloHaptics-1.2-setup.exe"
+  "hapticsVersion": "1.3",
+  "hapticsUrl": "https://github.com/narznarz/HANGULO_PACKAGE/releases/download/haptics-v1.3/HanguloHaptics-1.3-setup.exe"
 }
