@@ -92,10 +92,13 @@ jobs:
               import os
               ig_tok = os.environ.get("IG_TOKEN")
               if ig_tok:
-                  ig = json.loads(get(f"https://graph.facebook.com/v21.0/17841457368833553?fields=followers_count,media_count&access_token={ig_tok}"))
+                  ig_raw = get(f"https://graph.facebook.com/v21.0/17841457368833553?fields=followers_count,media_count&access_token={ig_tok}")
+                  ig = json.loads(ig_raw.lstrip("\ufeff"))
                   if isinstance(ig.get("followers_count"), int):
                       out["instagram_followers"] = int(ig["followers_count"])
-                      print("instagram:", ig["followers_count"])
+                      if isinstance(ig.get("media_count"), int):
+                          out["instagram_media_count"] = int(ig["media_count"])
+                      print("instagram:", ig["followers_count"], "media:", ig.get("media_count"))
                   else:
                       print("instagram: no count", ig)
               else:
