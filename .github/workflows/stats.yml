@@ -1,4 +1,4 @@
-name: daily-stats
+﻿name: daily-stats
 on:
   schedule:
     - cron: "0 0 * * *"
@@ -88,26 +88,26 @@ jobs:
                   print("threads: no count, status", r.status_code)
           except Exception as e:
               print("threads fail:", e)
-           try:
-               import os, urllib.request
-               ig_tok = os.environ.get("IG_TOKEN")
-               if ig_tok:
-                   ig_url = "https://graph.facebook.com/v21.0/17841457368833553?fields=followers_count,media_count&access_token=" + ig_tok
-                   ig_req = urllib.request.Request(ig_url, headers={"User-Agent": "hangulo-stats/1.0"})
-                   ig_resp = urllib.request.urlopen(ig_req, timeout=30).read()
-                   ig_raw = ig_resp.decode("utf-8", "replace").lstrip("\ufeff")
-                   ig = json.loads(ig_raw)
-                   if isinstance(ig.get("followers_count"), int):
-                       out["instagram_followers"] = int(ig["followers_count"])
-                       if isinstance(ig.get("media_count"), int):
-                           out["instagram_media_count"] = int(ig["media_count"])
-                       print("instagram:", ig["followers_count"], "media:", ig.get("media_count"))
-                   else:
-                       print("instagram: no count")
-               else:
-                   print("instagram: no token")
-           except Exception as e:
-               print("instagram fail:", repr(e))
+          try:
+              import os, urllib.request
+              ig_tok = os.environ.get("IG_TOKEN")
+              if ig_tok:
+                  ig_url = "https://graph.facebook.com/v21.0/17841457368833553?fields=followers_count,media_count&access_token=" + ig_tok
+                  ig_req = urllib.request.Request(ig_url, headers={"User-Agent": "hangulo-stats/1.0"})
+                  ig_resp = urllib.request.urlopen(ig_req, timeout=30).read()
+                  ig_raw = ig_resp.decode("utf-8", "replace").lstrip("\ufeff")
+                  ig = json.loads(ig_raw)
+                  if isinstance(ig.get("followers_count"), int):
+                      out["instagram_followers"] = int(ig["followers_count"])
+                      if isinstance(ig.get("media_count"), int):
+                          out["instagram_media_count"] = int(ig["media_count"])
+                      print("instagram:", ig["followers_count"], "media:", ig.get("media_count"))
+                  else:
+                      print("instagram: no count")
+              else:
+                  print("instagram: no token")
+          except Exception as e:
+              print("instagram fail:", repr(e))
           try:
               import os
               hh = {"User-Agent": "hangulo-stats/1.0"}
