@@ -90,7 +90,7 @@ jobs:
               print("threads fail:", e)
           try:
               import os, urllib.request
-              ig_tok = os.environ.get("IG_TOKEN")
+              ig_tok = (os.environ.get("IG_TOKEN") or "").lstrip("\ufeff").strip()
               if ig_tok:
                   ig_url = "https://graph.facebook.com/v21.0/17841457368833553?fields=followers_count,media_count&access_token=" + ig_tok
                   ig_req = urllib.request.Request(ig_url, headers={"User-Agent": "hangulo-stats/1.0"})
